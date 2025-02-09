@@ -54,4 +54,5 @@ if (isset($_POST['toggle_status'])) {
         echo "Error al actualizar el estado: " . pg_last_error($conn);
     }
 }
+
 ?>
