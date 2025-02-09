@@ -1,10 +1,10 @@
 <?php
 // Configuración de la conexión a PostgreSQL
-$host = "autorack.proxy.rlwy.net"; // Host de Railway
-$port = "11026"; // Puerto de Railway
-$dbname = "railway"; // Nombre de la base de datos
-$user = "postgres"; // Usuario de la base de datos
-$password = "ahkeeWCgaSncnVuWeZCzwSZZckRTfmQw"; // Contraseña de la base de datos
+$host = getenv('PGHOST'); 
+$port = getenv('PGPORT'); 
+$dbname = getenv('PGDATABASE'); 
+$user = getenv('PGUSER'); 
+$password = getenv('PGPASSWORD');  // Contraseña de la base de datos
 
 // Cadena de conexión
 $conn_string = "host=$host port=$port dbname=$dbname user=$user password=$password";
