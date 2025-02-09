@@ -1,10 +1,17 @@
 <?php
+// Verificar variables de entorno
+echo "PGHOST: " . getenv('PGHOST') . "<br>";
+echo "PGPORT: " . getenv('PGPORT') . "<br>";
+echo "PGDATABASE: " . getenv('PGDATABASE') . "<br>";
+echo "PGUSER: " . getenv('PGUSER') . "<br>";
+echo "PGPASSWORD: " . getenv('PGPASSWORD') . "<br>";
+
 // Configuración de la conexión a PostgreSQL
 $host = getenv('PGHOST'); 
 $port = getenv('PGPORT'); 
 $dbname = getenv('PGDATABASE'); 
 $user = getenv('PGUSER'); 
-$password = getenv('PGPASSWORD');  // Contraseña de la base de datos
+$password = getenv('PGPASSWORD');
 
 // Cadena de conexión
 $conn_string = "host=$host port=$port dbname=$dbname user=$user password=$password";
@@ -15,6 +22,8 @@ $conn = pg_connect($conn_string);
 // Verificar la conexión
 if (!$conn) {
     die("Connection failed: " . pg_last_error());
+} else {
+    echo "Conexión exitosa a la base de datos.<br>";
 }
 
 // Leer el estado
@@ -54,5 +63,4 @@ if (isset($_POST['toggle_status'])) {
         echo "Error al actualizar el estado: " . pg_last_error($conn);
     }
 }
-
 ?>
